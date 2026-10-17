@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' blob: data:; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' blob: data:; connect-src 'self' blob: data: ws://localhost:5173 ws://127.0.0.1:5173; worker-src 'self' blob:; frame-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none';"
+    />
+    <meta name="theme-color" content="#f7f8f6" />
+    <meta
+      name="description"
+      content="阅境，一处安静的私人阅读角落。舒适阅读漫画与电子书，文件与进度保存在本地。"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>阅境 · 让阅读自成一境</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

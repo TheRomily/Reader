@@ -1,0 +1,165 @@
+{
+  "title": "阅境 Mac 安装与首次启动验收报告 R3",
+  "revision": "R3",
+  "generatedAt": "2026-10-17T14:15:57.280Z",
+  "timezone": "Asia/Shanghai",
+  "status": "passed-with-stated-untested-scope",
+  "verdict": "已安装到 Applications；本机安装后的首次启动及已执行基本阅读检查通过",
+  "application": {
+    "name": "阅境",
+    "version": "1.0.0",
+    "architecture": "arm64",
+    "installedPath": "/Applications/阅境.app",
+    "macOS": "27.0.1",
+    "macOSBuild": "26A434"
+  },
+  "installation": {
+    "status": "passed",
+    "existingApplication": false,
+    "manifestEntries": 280,
+    "quarantinePresent": false,
+    "dmgEjected": true
+  },
+  "firstLaunch": {
+    "status": "passed",
+    "normalUserProfile": true,
+    "existingLibraryVisible": true,
+    "normalLaunchSucceeded": true,
+    "systemWarningObserved": false,
+    "securitySettingsChanged": false,
+    "scope": "本机安装后的首次正常启动；既有用户配置。并非下载隔离环境下的全新账户首次启动。"
+  },
+  "installedReading": {
+    "smoke": {
+      "formats": [
+        "PDF",
+        "EPUB",
+        "MOBI"
+      ],
+      "dualPageGeometry": true,
+      "bookmarkAndProgressReload": true,
+      "ipcRouting": true,
+      "rendererIsolation": true,
+      "status": "passed"
+    },
+    "realSamples": {
+      "status": "passed",
+      "cases": [
+        {
+          "sampleId": "PDF-A",
+          "format": "PDF",
+          "bytes": 33410238,
+          "sha256": "939910b2732ffa6217b24f06a53357045c24039b8b1af3220966c24915534597",
+          "logicalPages": 27,
+          "firstPage": {
+            "kind": "image",
+            "images": [
+              {
+                "width": 1191,
+                "height": 1709
+              }
+            ]
+          },
+          "secondPage": {
+            "kind": "image",
+            "images": [
+              {
+                "width": 1191,
+                "height": 1709
+              }
+            ]
+          },
+          "status": "passed",
+          "restartPersistence": "passed"
+        },
+        {
+          "sampleId": "MOBI-A",
+          "format": "MOBI",
+          "bytes": 33472436,
+          "sha256": "b58e2af3339fd929687085b1bb997b2e39ae9f991d22b125efce01789b7f3796",
+          "logicalPages": 163,
+          "firstPage": {
+            "kind": "html",
+            "textLength": 0,
+            "imageCount": 1,
+            "loadedImages": 1
+          },
+          "secondPage": {
+            "kind": "html",
+            "textLength": 0,
+            "imageCount": 1,
+            "loadedImages": 1
+          },
+          "status": "passed",
+          "restartPersistence": "passed"
+        }
+      ],
+      "geometryChecks": 48,
+      "windows": [
+        [
+          1360,
+          920
+        ],
+        [
+          1000,
+          760
+        ],
+        [
+          780,
+          600
+        ]
+      ],
+      "fits": [
+        "page",
+        "width"
+      ],
+      "zoom": [
+        100,
+        150
+      ],
+      "directions": [
+        "ltr",
+        "rtl"
+      ],
+      "temporaryLibraryRemoved": true,
+      "errors": []
+    }
+  },
+  "previousValidation": {
+    "revision": "R2",
+    "unitTests": 17,
+    "browserTests": 9,
+    "extendedDesktopChecks": 12,
+    "realDocuments": 6,
+    "geometryChecks": 144,
+    "issue": "UI-01 resolved",
+    "sampleInventory": {
+      "files": 50,
+      "unchangedHashes": 50
+    }
+  },
+  "artifact": {
+    "file": "Yuejing-1.0.0-arm64-local-trial.dmg",
+    "bytes": 155318754,
+    "sha256": "13d46bcf7edcec9f7ae93fff974c4c07116859f4df83d114b831f111ce4ab613",
+    "appAsarSha256": "ecb5781f4ccf1444d986e0bab90190aeefad2b71fff2697fba88b57cba563857",
+    "cdHash": "cb212bb30307c7e8a9716c25fee22da9383b2402",
+    "signature": "ad-hoc",
+    "notarized": false,
+    "gatekeeperAssessment": "rejected",
+    "gatekeeperExitCode": 3
+  },
+  "limitations": [
+    "本次是本机无下载隔离标记的安装启动；未验证浏览器下载隔离状态、全新 macOS 用户或其他设备的首次授权体验",
+    "真实 Calibre 转换及输出回读未测",
+    "系统中文朗读实际出声及听感未测",
+    "未对全部漫画逐页通读；Intel、Windows 与长时间稳定性未测"
+  ],
+  "automationReview": {
+    "blockedAction": "在既有日常书库按 Right 翻页",
+    "reason": "可能持久化真实阅读进度",
+    "resolution": "未继续该操作，改用已安装应用的独立临时书库验证翻页和持久化"
+  },
+  "repository": "https://github.com/TheRomily/Reader",
+  "releaseUrl": "https://github.com/TheRomily/Reader/releases/tag/mac-local-trial-20261017-r3"
+}

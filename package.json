@@ -1,0 +1,95 @@
+{
+  "name": "yuejing-reader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build && node scripts/copy-notices.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "desktop": "npm run build && electron .",
+    "desktop:dev": "electron .",
+    "package:mac": "npm run build && electron-builder --mac --publish never",
+    "package:win": "npm run build && electron-builder --win --x64 --publish never",
+    "format": "prettier --write src desktop scripts tests *.ts *.json *.html *.md .github/workflows/*.yml",
+    "mac:check": "node scripts/mac-trial.mjs --check",
+    "mac:trial": "node scripts/mac-trial.mjs",
+    "test:desktop": "node tests/desktop-smoke.mjs",
+    "export:source": "node scripts/export-source.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans-sc": "^5.3.1",
+    "@fontsource-variable/noto-serif-sc": "^5.3.1",
+    "dompurify": "^3.3.1",
+    "fflate": "^0.8.3",
+    "foliate-js": "^1.0.1",
+    "idb": "^8.0.3",
+    "jszip": "^3.10.1",
+    "libarchive.js": "2.0.2",
+    "lucide-react": "^0.468.0",
+    "pdfjs-dist": "^6.4.299",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3",
+    "jsdom": "^27.0.0",
+    "pdf-lib": "^1.17.1",
+    "prettier": "^3.9.10",
+    "tar-stream": "^3.2.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.0",
+    "vitest": "^3.2.4"
+  },
+  "description": "阅境 · 漫画与电子书的私人阅读空间",
+  "author": "Reader Contributors",
+  "license": "Apache-2.0",
+  "main": "desktop/main.cjs",
+  "build": {
+    "appId": "com.yuejing.reader",
+    "productName": "阅境",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "desktop/**/*",
+      "package.json",
+      "THIRD_PARTY_NOTICES.md",
+      "LICENSE",
+      "!node_modules/**/*"
+    ],
+    "asar": true,
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.books",
+      "identity": null
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "icon": "desktop/icon.png"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

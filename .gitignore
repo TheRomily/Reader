@@ -1,0 +1,14 @@
+node_modules/
+.cache/
+dist/
+.vite/
+playwright-report/
+test-results/
+*.local
+.DS_Store
+public/libarchive/
+release/
+.electron-cache/
+public/pdfjs/
+*.tsbuildinfo
+core
